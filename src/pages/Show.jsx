@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getShowById } from '../api/tvmaze';
 import ShowMainData from '../components/shows/ShowMainData';
@@ -12,16 +12,18 @@ const Show = () => {
     const { data: showData, error: showError } = useQuery({
         queryKey: ['show', showId],
         queryFn: () => getShowById(showId),
-        refetchOnWindowFocus : false
+        refetchOnWindowFocus: false,
     });
 
     if (showError) {
         return <div>We have an error: {showError.message}</div>;
     }
-
+    
     if (showData) {
         return (
             <div>
+                <Link to="/">Go back to Home</Link>
+                
                 <ShowMainData
                     image={showData.image}
                     name={showData.name}
@@ -31,15 +33,15 @@ const Show = () => {
                 />
                 <div>
                     <h2>Details</h2>
-                    <Details 
-                        status = {showData.status}
-                        premiered = {showData.premiered}
-                        network = {showData.network}
+                    <Details
+                        status={showData.status}
+                        premiered={showData.premiered}
+                        network={showData.network}
                     />
                 </div>
                 <div>
                     <h2>Seasons</h2>
-                    <Seasons seasons={showData._embedded.seasons}/>
+                    <Seasons seasons={showData._embedded.seasons} />
                 </div>
                 <div>
                     <h2>Cast</h2>
