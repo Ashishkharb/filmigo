@@ -5,8 +5,8 @@ import ShowMainData from '../components/shows/ShowMainData';
 import Details from '../components/shows/Details';
 import Seasons from '../components/shows/Seasons';
 import Cast from '../components/shows/Cast';
-import styled from 'styled-components'
-import {TextCenter} from '../components/common/TextCenter'
+import styled from 'styled-components';
+import { TextCenter } from '../components/common/TextCenter';
 
 const Show = () => {
     const { showId } = useParams();
@@ -17,23 +17,22 @@ const Show = () => {
         refetchOnWindowFocus: false,
     });
 
-    const checkCastLength = (cast) => {
-        if(cast?.length >0)
-            return <Cast cast={showData._embedded.cast} />
-        else return <InfoBlock>No Data Found</InfoBlock>
-    }
+    const checkCastLength = cast => {
+        if (cast?.length > 0) return <Cast cast={showData._embedded.cast} />;
+        else return <InfoBlock>No Data Found</InfoBlock>;
+    };
 
     if (showError) {
         return <TextCenter>We have an error: {showError.message}</TextCenter>;
     }
-    
+
     if (showData) {
         return (
             <ShowPageWrapper>
                 <BackHomeWrapper>
                     <Link to="/">Go back to Home</Link>
                 </BackHomeWrapper>
-                
+
                 <ShowMainData
                     image={showData.image}
                     name={showData.name}
@@ -67,33 +66,33 @@ const Show = () => {
 export default Show;
 
 const BackHomeWrapper = styled.div`
-  margin-bottom: 30px;
-  text-align: left;
-  a {
-    padding: 10px;
-    color: ${({ theme }) => theme.mainColors.dark};
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
+    margin-bottom: 30px;
+    text-align: left;
+    a {
+        padding: 10px;
+        color: ${({ theme }) => theme.mainColors.dark};
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
     }
-  }
 `;
 
 const ShowPageWrapper = styled.div`
-  margin: auto;
-  @media only screen and (min-width: 768px) {
-    max-width: 700px;
-  }
-  @media only screen and (min-width: 992px) {
-    max-width: 900px;
-  }
+    margin: auto;
+    @media only screen and (min-width: 768px) {
+        max-width: 700px;
+    }
+    @media only screen and (min-width: 992px) {
+        max-width: 900px;
+    }
 `;
 
 const InfoBlock = styled.div`
-  margin-bottom: 40px;
-  h2 {
-    margin: 0;
-    margin-bottom: 30px;
-    font-size: 22px;
-  }
+    margin-bottom: 40px;
+    h2 {
+        margin: 0;
+        margin-bottom: 30px;
+        font-size: 22px;
+    }
 `;

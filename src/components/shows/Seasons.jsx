@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 const Seasons = ({ seasons }) => {
     return (
@@ -10,15 +10,18 @@ const Seasons = ({ seasons }) => {
             </p>
             <SeasonList>
                 {seasons.map(season => {
-                    return <div key={season.id} className="season-item">
-                        <div className="left">
-                            <p>Season: {season.number}</p>
-                            <p>Episodes: {season.episodeOrder}</p>
+                    return (
+                        <div key={season.id} className="season-item">
+                            <div className="left">
+                                <p>Season: {season.number}</p>
+                                <p>Episodes: {season.episodeOrder}</p>
+                            </div>
+                            <div className="right">
+                                Aired: <strong>{season.premiereDate}</strong> to{' '}
+                                <strong>{season.endDate}</strong>
+                            </div>
                         </div>
-                        <div className="right">
-                            Aired: <strong>{season.premiereDate}</strong> to <strong>{season.endDate}</strong>
-                        </div>
-                    </div>;
+                    );
                 })}
             </SeasonList>
         </SeasonsWrapper>
@@ -28,29 +31,29 @@ const Seasons = ({ seasons }) => {
 export default Seasons;
 
 const SeasonsWrapper = styled.div`
-  p {
-    margin: 5px 0;
-  }
+    p {
+        margin: 5px 0;
+    }
 `;
 
 const SeasonList = styled.div`
-  display: flex;
-  flex-direction: column;
-  .season-item {
     display: flex;
-    align-items: center;
-    margin: 10px 0;
-    &:last-child {
-      margin-bottom: 0;
+    flex-direction: column;
+    .season-item {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .left {
+            flex: 0 0 30%;
+            border-right: 1px solid #b0b0b0;
+            padding-right: 20px;
+        }
+        .right {
+            padding-left: 20px;
+            flex: 1;
+        }
     }
-    .left {
-      flex: 0 0 30%;
-      border-right: 1px solid #b0b0b0;
-      padding-right: 20px;
-    }
-    .right {
-      padding-left: 20px;
-      flex: 1;
-    }
-  }
 `;

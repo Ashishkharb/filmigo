@@ -1,6 +1,6 @@
 import ShowCard from './ShowCard';
-import { useStarredShows } from '../../lib/useStarredShows'; 
-import {FlexGrid} from '../common/FlexGrid'
+import { useStarredShows } from '../../lib/useStarredShows';
+import { FlexGrid } from '../common/FlexGrid';
 
 const ShowGrid = ({ shows }) => {
     const [starredShows, dispatchStarred] = useStarredShows();

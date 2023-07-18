@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Starred from './pages/Starred';
 import MainLayout from './components/MainLayout';
 import Show from './pages/Show';
-import {GlobalTheme} from './theme'
+import { GlobalTheme } from './theme';
 const queryClient = new QueryClient();
 
 function App() {

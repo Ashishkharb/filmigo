@@ -1,4 +1,4 @@
-import { SearchCard, SearchImgWrapper } from "../common/SearchCard";
+import { SearchCard, SearchImgWrapper } from '../common/SearchCard';
 
 const ActorsCard = ({ name, image, gender, country, birthday, deathday }) => {
     return (

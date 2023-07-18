@@ -4,19 +4,19 @@ import { searchForShows, searchForPeople } from '../api/tvmaze';
 import SearchForm from '../components/SearchForm';
 import ShowGrid from '../components/shows/ShowGrid';
 import ActorsGrid from '../components/actors/ActorsGrid';
-import {TextCenter} from '../components/common/TextCenter'
+import { TextCenter } from '../components/common/TextCenter';
 
 const Home = () => {
     const [filter, setFilter] = useState(null);
 
-    const { data: apiData,error: apiDataError } = useQuery({
+    const { data: apiData, error: apiDataError } = useQuery({
         queryKey: ['search', filter],
         queryFn: () =>
             filter.searchOption === 'shows'
                 ? searchForShows(filter.q)
                 : searchForPeople(filter.q),
         enabled: !!filter,
-        refetchOnWindowFocus : false
+        refetchOnWindowFocus: false,
     });
 
     const onSearch = async ({ q, searchOption }) => {
@@ -28,7 +28,9 @@ const Home = () => {
             return <TextCenter>No results</TextCenter>;
         }
         if (apiDataError) {
-            return <TextCenter>Error occured: {apiDataError.message}</TextCenter>;
+            return (
+                <TextCenter>Error occured: {apiDataError.message}</TextCenter>
+            );
         }
         if (apiData) {
             return apiData[0].show ? (
