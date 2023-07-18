@@ -15,8 +15,11 @@ const Cast = ({ cast }) => {
                         />
                     </div>
                     <div className="actor">
-                        {person.name} | <strong>Role played:</strong>{' '}
-                        {character.name} {voice && '| Voiceover'}
+                        {person.name}
+                        <div className="role">
+                            <strong>Role played:</strong> {character.name}{' '}
+                            {voice && '| Voiceover'}
+                        </div>
                     </div>
                 </div>
             ))}
@@ -52,5 +55,8 @@ const CastList = styled.div`
     }
     .actor {
         margin-left: 25px;
+    }
+    .role {
+        margin-top: 2px;
     }
 `;

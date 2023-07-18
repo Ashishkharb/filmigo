@@ -2,6 +2,20 @@ import { styled } from 'styled-components';
 import { StarIcon } from '../common/StarIcon';
 
 const ShowMainData = ({ image, name, rating, summary, genres }) => {
+
+    const checkGenreAvailability = () => {
+        if (genres.length === 0) {
+            return <span> No Data Available</span>;
+        } else {
+            return (
+                <Genres>
+                    {genres.map(genre => (
+                        <span key={genre}>{genre}</span>
+                    ))}
+                </Genres>
+            );
+        }
+    };
     return (
         <MainDataWrapper>
             <div className="img-wrap">
@@ -21,11 +35,7 @@ const ShowMainData = ({ image, name, rating, summary, genres }) => {
                 <Summary dangerouslySetInnerHTML={{ __html: summary }} />
                 <div>
                     Genres:
-                    <Genres>
-                        {genres.map(genre => (
-                            <span key={genre}>{genre}</span>
-                        ))}
-                    </Genres>
+                    {checkGenreAvailability(genres)}
                 </div>
             </DataSection>
         </MainDataWrapper>
