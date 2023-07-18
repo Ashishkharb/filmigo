@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/filmigo/static/js/main.ffc3dd06.js",
+    "main.js": "/filmigo/static/js/main.f4fcab0e.js",
     "static/js/787.971e7ac7.chunk.js": "/filmigo/static/js/787.971e7ac7.chunk.js",
     "service-worker.js": "/filmigo/service-worker.js",
     "index.html": "/filmigo/index.html",
-    "main.ffc3dd06.js.map": "/filmigo/static/js/main.ffc3dd06.js.map",
+    "main.f4fcab0e.js.map": "/filmigo/static/js/main.f4fcab0e.js.map",
     "787.971e7ac7.chunk.js.map": "/filmigo/static/js/787.971e7ac7.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.ffc3dd06.js"
+    "static/js/main.f4fcab0e.js"
   ]
 }
